@@ -17,6 +17,8 @@
         <property name="format_sql">true</property>
         <property name="use_sql_comments">true</property>
 
-        <mapping class="main.java.Car" />
+        <mapping class="ru.job4j.hibernate.Candidate" />
     </session-factory>
 </hibernate-configuration>
+        <!--Файл изменен для выполнения задания  3. HQL [#6874]
+        до изменения <mapping class="ru.job4j.hibernate.Car" />-->

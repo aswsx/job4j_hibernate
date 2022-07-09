@@ -1,4 +1,4 @@
-package main.java;
+package ru.job4j.config;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -60,8 +60,12 @@ public class Car {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Car car = (Car) o;
         return id == car.id;
     }
