@@ -84,8 +84,8 @@ public class HbmRun {
              * Данный код выводит уникального кандидата с заданным name из таблицы
              */
             Query showUniqueByNameQuery = session.createQuery("from Candidate c where c.name = :name")
-                    .setParameter("name", "Alex");
-            System.out.println(showUniqueByNameQuery.uniqueResult());
+                    .setParameter("name", "NickNEW");
+            System.out.println(showUniqueByNameQuery.list());
 
             /**
              * Данный код удаляет уникального кандидата с заданным id из таблицы
