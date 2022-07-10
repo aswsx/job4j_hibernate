@@ -12,3 +12,15 @@ create table IF NOT exists candidates
     experience timestamp,
     salary     varchar(255)
 );
+
+create table IF NOT exists j_role
+(
+    id         serial primary key,
+    name       varchar(255)
+);
+
+create table IF NOT exists j_user
+(
+    id         serial primary key,
+    name       varchar(255)
+);
