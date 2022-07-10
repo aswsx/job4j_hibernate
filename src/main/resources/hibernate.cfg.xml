@@ -25,6 +25,10 @@
         <mapping class="ru.job4j.many.Role" />
         <mapping class="ru.job4j.many.CarModel" />
         <mapping class="ru.job4j.many.CarBrand" />
+        <mapping class="ru.job4j.manytomany.Person" />
+        <mapping class="ru.job4j.manytomany.Address" />
+        <mapping class="ru.job4j.manytomany.Author" />
+        <mapping class="ru.job4j.manytomany.Book" />
     </session-factory>
 </hibernate-configuration>
         <!--Файл изменен для выполнения задания  3. HQL [#6874]
