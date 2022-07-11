@@ -20,11 +20,16 @@
         <mapping class="ru.job4j.hibernate.Candidate" />
         <!--
         <mapping class="ru.job4j.toone.User" />
-        <mapping class="ru.job4j.toone.Role" /> -->
+        <mapping class="ru.job4j.toone.Role" />
+        -->
         <mapping class="ru.job4j.many.User" />
         <mapping class="ru.job4j.many.Role" />
+        <!--
         <mapping class="ru.job4j.many.CarModel" />
         <mapping class="ru.job4j.many.CarBrand" />
+        -->
+        <mapping class="ru.job4j.lazyinitializationexception.CarModel" />
+        <mapping class="ru.job4j.lazyinitializationexception.CarBrand" />
         <mapping class="ru.job4j.manytomany.Person" />
         <mapping class="ru.job4j.manytomany.Address" />
         <mapping class="ru.job4j.manytomany.Author" />
