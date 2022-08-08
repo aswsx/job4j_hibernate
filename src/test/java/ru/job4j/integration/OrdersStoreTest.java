@@ -1,9 +1,9 @@
 package ru.job4j.integration;
 
 import org.apache.commons.dbcp2.BasicDataSource;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -12,13 +12,13 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
-public class OrdersStoreTest {
+
+class OrdersStoreTest {
     private final BasicDataSource pool = new BasicDataSource();
 
-    @Before
+    @BeforeEach
     public void setUp() throws SQLException {
         pool.setDriverClassName("org.hsqldb.jdbcDriver");
         pool.setUrl("jdbc:hsqldb:mem:tests;sql.syntax_pgs=true");
@@ -36,7 +36,7 @@ public class OrdersStoreTest {
         pool.getConnection().prepareStatement(builder.toString()).executeUpdate();
     }
 
-    @After
+    @AfterEach
     public void destroy() throws SQLException {
         StringBuilder builder = new StringBuilder();
         try (BufferedReader br = new BufferedReader(
@@ -50,38 +50,38 @@ public class OrdersStoreTest {
     }
 
     @Test
-    public void whenSaveOrderAndFindAllOneRowWithDescription() {
+    void whenSaveOrderAndFindAllOneRowWithDescription() {
         OrdersStore store = new OrdersStore(pool);
         store.save(Order.of("name1", "description1"));
         List<Order> all = (List<Order>) store.findAll();
-        assertThat(all.size(), is(1));
-        assertThat(all.get(0).getDescription(), is("description1"));
-        assertThat(all.get(0).getId(), is(1));
+        assertThat(all.size()).isEqualTo(1);
+        assertThat(all.get(0).getDescription()).isEqualTo("description1");
+        assertThat(all.get(0).getId()).isEqualTo(1);
     }
 
     @Test
-    public void whenUpdateDatabase() {
+    void whenUpdateDatabase() {
         OrdersStore store = new OrdersStore(pool);
         Order order = (Order.of("name1", "description1"));
         Order newOrder = (Order.of("name2", "description2"));
         store.save(order);
         store.update(newOrder, order.getId());
-        assertThat(store.findById(order.getId()).getName(), is("name2"));
+        assertThat(store.findById(order.getId()).getName()).isEqualTo("name2");
     }
 
     @Test
-    public void whenFindByName() {
+    void whenFindByName() {
         OrdersStore store = new OrdersStore(pool);
         store.save(Order.of("name1", "description1"));
         Order order = store.findByName("name1");
-        assertThat(order.getName(), is("name1"));
+        assertThat(order.getName()).isEqualTo("name1");
     }
 
     @Test
-    public void whenFindById() {
+    void whenFindById() {
         OrdersStore store = new OrdersStore(pool);
         store.save(Order.of("name1", "description1"));
         Order order = store.findById(1);
-        assertThat(order.getName(), is("name1"));
+        assertThat(order.getName()).isEqualTo("name1");
     }
 }

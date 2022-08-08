@@ -13,7 +13,8 @@ import java.sql.Timestamp;
  * @version 1.0
  * @created 09/07/2022 - 11:57
  */
-@Entity
+/*@Entity
+*/
 @Table(name = "candidates")
 @Getter
 @Setter
