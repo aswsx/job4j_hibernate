@@ -9,14 +9,11 @@ import java.util.List;
  * @version 1.0
  * @created 09/08/2022 - 21:51
  */
-@Data
 @Builder(builderMethodName = "of")
 @ToString
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@RequiredArgsConstructor
 public class Permission {
-    @NonNull
     @EqualsAndHashCode.Include
     private final int id;
     @Setter
