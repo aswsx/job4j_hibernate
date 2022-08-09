@@ -1,2 +1,17 @@
 # Project exclude paths
 /target/
+/shelf/
+/.idea/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+carsandhibernate.iml
+.idea
+.gitignore
+/10Mb.dat
+/sonarlint
+/dreamjob.iml
+/testdb.mv.db
+/testdb.trace.db
